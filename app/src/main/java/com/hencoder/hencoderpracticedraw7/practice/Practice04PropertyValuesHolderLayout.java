@@ -1,5 +1,7 @@
 package com.hencoder.hencoderpracticedraw7.practice;
 
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -34,6 +36,11 @@ public class Practice04PropertyValuesHolderLayout extends RelativeLayout {
         animateBt.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                PropertyValuesHolder propertyValuesHolder1 = PropertyValuesHolder.ofFloat("scaleX", 0f, 1f);
+                PropertyValuesHolder propertyValuesHolder2 = PropertyValuesHolder.ofFloat("scaleY", 0f, 1f);
+                PropertyValuesHolder propertyValuesHolder3 = PropertyValuesHolder.ofFloat("alpha", 0f, 1f);
+                ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(view, propertyValuesHolder1, propertyValuesHolder2, propertyValuesHolder3);
+                objectAnimator.start();
                 // 使用 PropertyValuesHolder.ofFloat() 来创建不同属性的动画值方案
                 // 第一个： scaleX 从 0 到 1
                 // 第二个： scaleY 从 0 到 1

@@ -1,5 +1,8 @@
 package com.hencoder.hencoderpracticedraw7.practice.practice06;
 
+import android.animation.Keyframe;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
@@ -34,6 +37,12 @@ public class Practice06KeyframeLayout extends RelativeLayout {
         animateBt.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                Keyframe keyframe1 = Keyframe.ofFloat(0f, 0f);
+                Keyframe keyframe2 = Keyframe.ofFloat(0.5f, 100f);
+                Keyframe keyframe3 = Keyframe.ofFloat(1f, 80f);
+                PropertyValuesHolder holder = PropertyValuesHolder.ofKeyframe("progress", keyframe1, keyframe2, keyframe3);
+                ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(view, holder);
+                animator.start();
                 // 使用 Keyframe.ofFloat() 来为 view 的 progress 属性创建关键帧
                 // 初始帧：progress 为 0
                 // 时间进行到一般：progress 为 100
